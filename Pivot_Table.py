@@ -11,13 +11,13 @@ import datetime
 
 
 
-# コマンドライン引数引き受け
+# コマンドライン引数引き受け（ファイルパス）
 mspass = sys.argv[1]
 
 
 
 # Function
-# エクセルファイル読み込み
+# エクセルファイルをpandas.DataFrame型へ読み込み
 def readMasterFile02(msfile):
     dfMs = pd.read_excel(msfile, sheet_name=1)
     return dfMs

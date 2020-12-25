@@ -16,10 +16,12 @@ from External_Module import datetimeToDateOnMaster02
 
 
 
-# コマンドライン引数引き受け
+# コマンドライン引数引き受け（ファイルパス）
 mspass = sys.argv[1]
 dbpass = sys.argv[2]
 dipass = sys.argv[3]
+
+# コマンドライン引数引き受け（入力日 or 対象日）
 inputdate = datetime.datetime.strptime(sys.argv[4], "%Y/%m/%d")
 
 tempy = inputdate.year
@@ -32,7 +34,7 @@ exceptional_date = "例外計上 at {0}年{1}月".format(tempy, tempm)
 
 
 # Function
-# Excelファイル読み込み
+# エクセルファイルをpandas.DataFrame型へ読み込み
 def readMasterFile01(msfile):
     dfMs = pd.read_excel(msfile, sheet_name=0)
     return dfMs

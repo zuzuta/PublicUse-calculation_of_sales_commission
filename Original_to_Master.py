@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 from dateutil.relativedelta import relativedelta
 import calendar
+import datetime
 
 from External_Module import prePreocessing01
 from External_Module import prePreocessing02
@@ -17,7 +18,7 @@ from External_Module import datetimeToDateOnMaster02
 
 
 
-# コマンドライン引数引き受け
+# コマンドライン引数引き受け（ファイルパス）
 cspass = sys.argv[1]
 mspass = sys.argv[2]
 dbpass = sys.argv[3]
@@ -25,7 +26,7 @@ dbpass = sys.argv[3]
 
 
 # Function
-# エクセルファイル読み込み
+# エクセルファイルをpandas.DataFrame型へ読み込み
 def readCsDownloadedFile(csfile):
     dfCs = pd.read_excel(csfile)
     return dfCs
@@ -149,6 +150,6 @@ result02b = datetimeToDateOnMaster02(result02[1])
 
 
 # エクセルファイル書き出し
-with pd.ExcelWriter("Master.xlsx") as writer:
+with pd.ExcelWriter("{} Master.xlsx".format(datetime.date.today())) as writer:
     result02a.to_excel(writer, index=False, sheet_name="Sheet1")
     result02b.to_excel(writer, index=False, sheet_name="Sheet2")

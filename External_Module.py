@@ -140,24 +140,24 @@ def commissionPaymentDateCalculation(dfMs01, dfMs02, dfDb04):
             ### Rep支払日1 -> 1/25, 4/25, 7/25, 10/25 （地域A）
             if payday == 1:
                 if 1 <= pm <= 3:
-                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=epy, month=4, day=25).date()
+                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=py, month=4, day=25).date()
                 elif 4 <= pm <= 6:
-                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=epy, month=7, day=25).date()
+                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=py, month=7, day=25).date()
                 elif 7 <= pm <= 9:
-                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=epy, month=10, day=25).date()    
+                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=py, month=10, day=25).date()    
                 else:
-                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=epy + 1, month=1, day=25).date()
+                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=py + 1, month=1, day=25).date()
 
             ### Rep支払日2 -> 1/30, 4/30, 7/30, 10/30 （地域B）
             elif payday == 2:
                 if 1 <= pm <= 3:
-                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=epy, month=4, day=30).date()
+                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=py, month=4, day=30).date()
                 elif 4 <= pm <= 6:
-                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=epy, month=7, day=30).date()
+                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=py, month=7, day=30).date()
                 elif 7 <= pm <= 9:
-                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=epy, month=10, day=30).date()      
+                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=py, month=10, day=30).date()      
                 else:
-                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=epy + 1, month=1, day=30).date()  
+                    dfMs02.iloc[index, dfMs02.columns.get_loc("Rep支払確定月")] = pd.Timestamp(year=py + 1, month=1, day=30).date()  
             
             ### Rep支払日3 -> 毎月、2か月後25日 （地域C） + 海外子会社→Rep支払月も同時に入力
             elif payday == 3:

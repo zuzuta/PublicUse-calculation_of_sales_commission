@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 from dateutil.relativedelta import relativedelta
 import calendar
+import datetime
 
 from External_Module import commissionPaymentDateCalculation
 from External_Module import datetimeToDateOnMaster01
@@ -16,14 +17,14 @@ from External_Module import datetimeToDateOnMaster02
 
 
 
-# コマンドライン引数引き受け
+# コマンドライン引数引き受け（ファイルパス）
 mspass = sys.argv[1]
 dbpass = sys.argv[2]
 
 
 
 # Function
-# エクセルファイル読み込み
+# エクセルファイルをpandas.DataFrame型へ読み込み
 def readMasterFile01(msfile):
     dfMs = pd.read_excel(msfile, sheet_name=0)
     return dfMs
@@ -51,6 +52,6 @@ result01 = datetimeToDateOnMaster02(result01)
 
 
 # エクセルファイル書き出し
-with pd.ExcelWriter("Master.xlsx") as writer:
+with pd.ExcelWriter("{} Master.xlsx".format(datetime.date.today())) as writer:
     dfMs01.to_excel(writer, index=False, sheet_name="Sheet1")
     result01.to_excel(writer, index=False, sheet_name="Sheet2")

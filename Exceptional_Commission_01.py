@@ -18,12 +18,12 @@ from External_Module import datetimeToDateOnMaster02
 
 
 
-# コマンドライン引数引き受け
+# コマンドライン引数引き受け（ファイルパス）
 mspass = sys.argv[1]
 dbpass = sys.argv[2]
 expass = sys.argv[3]
 
-# inputdateの変数変換
+# コマンドライン引数引き受け（入力日 or 対象日）
 inputdate = datetime.datetime.strptime(sys.argv[4], "%Y/%m/%d")
 tempy = inputdate.year
 tempm = inputdate.month
@@ -32,7 +32,7 @@ inputdate = pd.Timestamp(year=tempy, month=tempm, day=calendar.monthrange(tempy,
 
 
 # Function
-# エクセルファイル読み込み
+# エクセルファイルをpandas.DataFrame型へ読み込み
 def readMasterFile01(msfile):
     dfMs = pd.read_excel(msfile, sheet_name=0)
     return dfMs
@@ -70,7 +70,8 @@ def copyExceptionalCommission(dfMs02, dfEx01):
                 dfMs02 = pd.concat([dfMs02, dfEx01.iloc[[index]]])
     
     dfMs02.reset_index(inplace=True, drop=True) 
-        return dfMs02
+    
+    return dfMs02
 
 
 
