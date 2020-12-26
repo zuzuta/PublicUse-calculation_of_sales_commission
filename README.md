@@ -1,6 +1,7 @@
 ### Summary
 
 For public-use code of the automated calculation of sales commission in the company working now (at 2020/12/15).
+
 Some proper norns are converted to anonymous.
 
 
