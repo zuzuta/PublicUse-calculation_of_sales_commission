@@ -23,4 +23,4 @@ Some proper norns are converted to anonymous.
 
 ### Improvement Plan
 
-Automatic processing for inputting payment receopt date on master file insted of manual input.
+Automatic processing for inputting payment receipt date on master file instead of manual input.
